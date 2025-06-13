@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --color-01: rgb(0, 0, 50);
+    --color-02: rgb(255, 255, 255);
+    --color-03: rgb(0, 150, 0);
+    --color-04: rgb(150, 0, 0);
+}
+
+body {
+    background-color: var(--color-01);
+    font-family: "Raleway", sans-serif;
+    color: var(--color-02); 
+}
+
+.container {
+    text-align: center;
+}
+
+.game-board {
+    width: 400px;
+    height: 400px;
+    border: 2px solid var(--color-02);
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    background-color: var(--color-02);
+}
+
+.score {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.snake {
+    background-color: var(--color-03);
+    border: 1px solid darkgreen;
+}
+
+.food {
+    background-color: var(--color-04);
+    border: 1px solid darkred;
+    border-radius: 50%;
+}
+
+h1 {
+    text-align: center;
+    margin: 75px 0;
+}
