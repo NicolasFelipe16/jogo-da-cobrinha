@@ -22,6 +22,7 @@ function criarTabuleiro() {
         elemento.classList.add('snake');
         tabuleiro.appendChild(elemento);
     });
+    
     function gerarComida() {
         let novaComida;
         while (!novaComida || posicaoOcupada(novaComida)) {
