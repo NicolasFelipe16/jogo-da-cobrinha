@@ -1,11 +1,11 @@
 let cobra = [{ x: 10, y: 10 }];
-let comida = makeFood();
+let comida = gerarComida();
 let direcao = 'DIREITA';
 let velocidade = 150;
 let pontos = 0;
 let intervalo;
 
-function init() {
+function iniciar() {
     criarTabuleiro();
     document.addEventListener('keydown', mudarDirecao);
     intervalo = setInterval(moverCobra, velocidade);
@@ -59,5 +59,41 @@ function moverCobra() {
         case 'BAIXO':
             cabeca.y++;
             break;
+        case 'ESQUERDA':
+            cabeca.x--;
+            break;
+        case 'DIREITA':
+            cabeca.x--;
+            break;
     }
+
+    if (verificaColisao(cabeca)) {
+        clearInterval(intervalo);
+        alert(`Game Over! Pontos: ${pontos}`);
+        return;
+    }
+
+    cobra.unshift(cabeca);
+
+    if (cabeca.x === comida.x && cabeca.y === comida.y) {
+        pontos += 10;
+        document.getElementById('score').textContent = `Pontos: ${pontos}`;
+        comida = gerarComida();
+    } else {
+        cobra.pop();
+    }
+
+    criarTabuleiro();
 }
+
+function verificaColisao(cabeca) {
+    if (cabeca.x < 1 || cabeca.x > 20 || cabeca.y < 1 || cabeca.y > 20) {
+        return true;
+    }
+
+    for (let i = 1; i < cobra.length; i++) {
+        if (cobra[i].x === cabeca.x && cobra[i].y === cabeca.y) {
+            return true;
+        }
+    }
+} 
