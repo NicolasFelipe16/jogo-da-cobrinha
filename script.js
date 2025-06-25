@@ -63,7 +63,7 @@ function moverCobra() {
             cabeca.x--;
             break;
         case 'DIREITA':
-            cabeca.x--;
+            cabeca.x++;
             break;
     }
 
@@ -96,4 +96,7 @@ function verificaColisao(cabeca) {
             return true;
         }
     }
+    return false;
 } 
+
+iniciar();

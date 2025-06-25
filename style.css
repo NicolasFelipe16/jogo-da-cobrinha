@@ -18,12 +18,14 @@ body {
 }
 
 .game-board {
-    width: 400px;
-    height: 400px;
+    display: block;
+    margin: 0 auto;
+    width: 1200px;
+    height: 600px;
     border: 2px solid var(--color-02);
     display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(60, 1fr);
+    grid-template-rows: repeat(30, 1fr);
     background-color: var(--color-02);
 }
 
@@ -34,7 +36,8 @@ body {
 
 .snake {
     background-color: var(--color-03);
-    border: 1px solid darkgreen;
+    border: 1px solid white;
+    border-radius: 5px;
 }
 
 .food {
@@ -45,5 +48,5 @@ body {
 
 h1 {
     text-align: center;
-    margin: 75px 0;
+    margin: 25px 0;
 }
