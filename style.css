@@ -13,8 +13,10 @@ body {
     color: var(--color-02); 
 }
 
-.container {
-    text-align: center;
+.game-container {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
 }
 
 .game-board {
@@ -27,23 +29,31 @@ body {
     grid-template-columns: repeat(60, 1fr);
     grid-template-rows: repeat(30, 1fr);
     background-color: var(--color-02);
+    border-radius: 5px;
 }
 
-.score {
-    margin-top: 20px;
-    font-size: 15px;
+#score {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 100px;
+    font-weight: bold;
+    color: rgba(0, 0, 50, .5);
 }
 
 .snake {
     background-color: var(--color-03);
     border: 1px solid white;
     border-radius: 5px;
+    z-index: 10;
 }
 
 .food {
     background-color: var(--color-04);
     border: 1px solid darkred;
     border-radius: 50%;
+    z-index: 10;
 }
 
 h1 {

@@ -1,4 +1,4 @@
-let cobra = [{ x: 10, y: 10 }];
+let cobra = [{ x: 30, y: 15  }];
 let comida = gerarComida();
 let direcao = 'DIREITA';
 let velocidade = 150;
@@ -77,7 +77,7 @@ function moverCobra() {
 
     if (cabeca.x === comida.x && cabeca.y === comida.y) {
         pontos += 10;
-        document.getElementById('score').textContent = `Pontos: ${pontos}`;
+        document.getElementById('score').textContent = `${pontos}`;
         comida = gerarComida();
     } else {
         cobra.pop();
@@ -87,7 +87,7 @@ function moverCobra() {
 }
 
 function verificaColisao(cabeca) {
-    if (cabeca.x < 1 || cabeca.x > 20 || cabeca.y < 1 || cabeca.y > 20) {
+    if (cabeca.x < 1 || cabeca.x > 60 || cabeca.y < 1 || cabeca.y > 30) {
         return true;
     }
 
