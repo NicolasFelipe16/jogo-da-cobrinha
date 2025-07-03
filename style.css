@@ -60,3 +60,26 @@ h1 {
     text-align: center;
     margin: 25px 0;
 }
+
+
+
+
+
+
+.head {
+    background-color: darkgreen; /* cor vermelha */
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.final-tail {
+    scale: .5;
+}
+
+.final-tail-2 {
+    scale: .5;
+}
+
+.final-tail-3 {
+    scale: .8;
+}

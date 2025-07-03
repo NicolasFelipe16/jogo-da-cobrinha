@@ -1,4 +1,4 @@
-let cobra = [{ x: 30, y: 15  }];
+let cobra = [{x: 30, y: 15}];
 let comida = gerarComida();
 let direcao = 'DIREITA';
 let velocidade = 150;
@@ -15,11 +15,23 @@ function criarTabuleiro() {
     const tabuleiro = document.getElementById('game-board');
     tabuleiro.innerHTML = '';
 
-    cobra.forEach(segmento => {
+    cobra.forEach((segmento, index) => {
         const elemento = document.createElement('div');
         elemento.style.gridRowStart = segmento.y;
         elemento.style.gridColumnStart = segmento.x;
-        elemento.classList.add('snake');
+        
+        if (index === 0) {
+            elemento.classList.add('snake', 'head');
+        } else if (index === cobra.length - 1) {
+            elemento.classList.add('snake', 'final-tail');
+        } else if (index === cobra.length - 2) {
+            elemento.classList.add('snake', 'final-tail-2');
+        } else if (index === cobra.length - 3) {
+            elemento.classList.add('snake', 'final-tail-3');
+        } else {
+            elemento.classList.add('snake');
+        }
+
         tabuleiro.appendChild(elemento);
     });
     const elementoComida = document.createElement('div');
@@ -32,8 +44,8 @@ function gerarComida() {
     let novaComida;
     while (!novaComida || posicaoOcupada(novaComida)) {
         novaComida = {
-            x: Math.floor(Math.random() * 18) + 2,
-            y: Math.floor(Math.random() * 18) + 2
+            x: Math.floor(Math.random() * 58) + 2,
+            y: Math.floor(Math.random() * 28) + 2
         }
     }
     return novaComida;
@@ -76,7 +88,8 @@ function moverCobra() {
     cobra.unshift(cabeca);
 
     if (cabeca.x === comida.x && cabeca.y === comida.y) {
-        pontos += 10;
+        pontos ++;
+        velocidade -= 5;
         document.getElementById('score').textContent = `${pontos}`;
         comida = gerarComida();
     } else {
